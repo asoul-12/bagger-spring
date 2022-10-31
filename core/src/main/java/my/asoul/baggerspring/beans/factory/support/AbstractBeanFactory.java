@@ -11,14 +11,19 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
 
     @Override
     public Object getBean(String beanName) {
+        return getBean(beanName, null);
+    }
+
+    @Override
+    public Object getBean(String beanName, Object... args) {
         Object sharedInstance = getSingleton(beanName);
         if (sharedInstance != null) {
-            System.out.println("getSingleton from cacheContext");
+            System.out.println("有缓存" + beanName);
             return sharedInstance;
         }
-        System.out.println("getSingleton from create");
+        System.out.println("无缓存" + beanName);
         BeanDefinition beanDefinition = getBeanDefinition(beanName);
-        return createBean(beanName, beanDefinition);
+        return createBean(beanName, beanDefinition, args);
     }
 
     /**
@@ -32,6 +37,6 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
      * @param beanDefinition
      * @return
      */
-    protected abstract Object createBean(String beanName, BeanDefinition beanDefinition);
+    protected abstract Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args);
 
 }

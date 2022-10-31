@@ -1,4 +1,4 @@
-package my.asoul.baggerspring.beans.factory;
+package my.asoul.baggerspring.beans.factory.config;
 
 /**
  * @author 4512

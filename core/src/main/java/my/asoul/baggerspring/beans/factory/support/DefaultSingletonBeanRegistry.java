@@ -1,6 +1,6 @@
 package my.asoul.baggerspring.beans.factory.support;
 
-import my.asoul.baggerspring.beans.factory.SingletonBeanRegistry;
+import my.asoul.baggerspring.beans.factory.config.SingletonBeanRegistry;
 
 import java.util.HashMap;
 import java.util.Map;

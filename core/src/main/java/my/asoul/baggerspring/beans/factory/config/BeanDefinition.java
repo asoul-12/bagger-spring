@@ -1,16 +1,27 @@
 package my.asoul.baggerspring.beans.factory.config;
 
+import my.asoul.baggerspring.beans.PropertyValues;
+
 /**
  * @author 4512
  * @date 2022/10/30 2:18
  */
 public class BeanDefinition {
     private Class beanClass;
+
+    private PropertyValues propertyValues;
+
     private String className;
+
     private String[] alias;
 
     public BeanDefinition(Class beanClass) {
         this.beanClass = beanClass;
+    }
+
+    public BeanDefinition(Class beanClass, PropertyValues propertyValues) {
+        this.beanClass = beanClass;
+        this.propertyValues = propertyValues;
     }
 
     public Class getBeanClass() {
@@ -19,6 +30,14 @@ public class BeanDefinition {
 
     public void setBeanClass(Class beanClass) {
         this.beanClass = beanClass;
+    }
+
+    public PropertyValues getPropertyValues() {
+        return propertyValues;
+    }
+
+    public void setPropertyValues(PropertyValues propertyValues) {
+        this.propertyValues = propertyValues;
     }
 
     public String getClassName() {
